@@ -22,11 +22,9 @@ const posts = await getAllPosts()
       >
     </Link>
     <div class="flex items-center gap-4">
-      <!-- 搜索功能 -->
-      <div class="hidden sm:block">
-        <SearchProvider client:load posts={posts} />
-      </div>
       <nav class="flex items-center gap-4 text-sm sm:gap-6">
+        <!-- 搜索功能 -->
+        <SearchProvider client:load posts={posts} className="hidden sm:block" />
         {
           NAV_LINKS.map((item) => (
             <Link

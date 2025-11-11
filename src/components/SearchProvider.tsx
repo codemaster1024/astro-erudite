@@ -3,9 +3,10 @@ import type { CollectionEntry } from 'astro:content'
 
 interface SearchProviderProps {
   posts: CollectionEntry<'blog'>[]
+  className?: string
 }
 
-export default function SearchProvider({ posts }: SearchProviderProps) {
+export default function SearchProvider({ posts, className }: SearchProviderProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // 处理全局键盘快捷键
@@ -26,31 +27,39 @@ export default function SearchProvider({ posts }: SearchProviderProps) {
 
   return (
     <>
-      {/* 搜索按钮 */}
-      <button
-        className="h-8 w-8 p-0 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground"
-        onClick={() => setIsSearchOpen(true)}
-        title="搜索文章 (Ctrl+K)"
-      >
-        <svg
-          className="h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
+      <div className={className}>
+        {/* 搜索按钮 */}
+        <button
+          className="inline-flex items-center justify-center rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground text-foreground/60 hover:text-foreground p-1 cursor-pointer"
+          onClick={() => setIsSearchOpen(true)}
+          title="搜索文章 (Ctrl+K)"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
-      </button>
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </button>
+      </div>
       
       {/* 搜索对话框 */}
       {isSearchOpen && (
-        <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm" onClick={() => setIsSearchOpen(false)}>
-          <div className="fixed left-[50%] top-16 z-50 w-full max-w-lg translate-x-[-50%] border bg-background shadow-lg rounded-lg" onClick={e => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 z-[9999] bg-background/80 backdrop-blur-sm" 
+          onClick={() => setIsSearchOpen(false)}
+        >
+          <div 
+            className="fixed left-[50%] top-16 z-[10000] w-full max-w-lg translate-x-[-50%] border bg-background shadow-lg rounded-lg" 
+            onClick={e => e.stopPropagation()}
+          >
             <SearchDialogContent posts={posts} onClose={() => setIsSearchOpen(false)} />
           </div>
         </div>
@@ -102,25 +111,6 @@ function SearchDialogContent({ posts, onClose }: { posts: CollectionEntry<'blog'
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
         />
-        <button
-          onClick={onClose}
-          className="ml-2 h-6 w-6 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          title="关闭搜索 (ESC)"
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
       </div>
       <div className="max-h-[300px] overflow-y-auto overflow-x-hidden">
         {!query && (
@@ -130,7 +120,7 @@ function SearchDialogContent({ posts, onClose }: { posts: CollectionEntry<'blog'
               • 输入文章标题关键词<br/>
               • 搜索文章描述内容<br/>
               • 按标签筛选文章<br/>
-              • 使用 ESC 键关闭搜索
+              • 按 ESC 键关闭搜索
             </div>
           </div>
         )}
