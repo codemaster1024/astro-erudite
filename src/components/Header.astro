@@ -1,9 +1,13 @@
 ---
 import Link from '@/components/Link.astro'
+import SearchProvider from '@/components/SearchProvider'
 import ThemeToggle from '@/components/ThemeToggle.astro'
 import { NAV_LINKS, SITE } from '@/consts'
+import { getAllPosts } from '@/lib/data-utils'
 import { Image } from 'astro:assets'
 import logo from '../../public/static/logo.svg'
+
+const posts = await getAllPosts()
 ---
 
 <div>
@@ -18,6 +22,10 @@ import logo from '../../public/static/logo.svg'
       >
     </Link>
     <div class="flex items-center gap-4">
+      <!-- 搜索功能 -->
+      <div class="hidden sm:block">
+        <SearchProvider client:load posts={posts} />
+      </div>
       <nav class="flex items-center gap-4 text-sm sm:gap-6">
         {
           NAV_LINKS.map((item) => (
