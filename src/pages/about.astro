@@ -5,42 +5,171 @@ import PageHead from '@/components/PageHead.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 import Layout from '@/layouts/Layout.astro'
 import { getAllProjects } from '@/lib/data-utils'
+import { Icon } from 'astro-icon/components'
 
 const projects = await getAllProjects()
 ---
 
 <Layout class="max-w-3xl">
-  <PageHead slot="head" title="About" />
-  <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+  <PageHead slot="head" title="关于我" />
+  <Breadcrumbs items={[{ label: '关于我', icon: 'lucide:info' }]} />
 
-  <section>
-    <div class="min-w-full">
-      <div class="prose mb-8">
-        <p class="mt-0">
-          astro-erudite is an opinionated, unstyled static blogging template
-          that prioritizes simplicity and performance, built with <Link
-            href="https://astro.build"
-            external
-            underline>Astro</Link
-          >, <Link href="https://tailwindcss.com" external underline
-            >Tailwind</Link
-          >, and <Link href="https://ui.shadcn.com" external underline
-            >shadcn/ui</Link
-          >. It provides a clean foundation for your content while being
-          extremely easy to customize.
-        </p>
-        <p>
-          To learn more about the philosophy behind this template, check out the
-          following blog post: <Link
-            href="/blog/the-state-of-static-blogs"
-            underline>The State of Static Blogs in 2024</Link
-          >.
-        </p>
+  <section class="space-y-12">
+    <!-- 个人介绍 -->
+    <div class="flex flex-col items-center gap-8 sm:flex-row">
+      <div class="shrink-0">
+        <img
+          src="https://img.wangtopia.top/202501/avatar.webp"
+          alt="王同学"
+          class="size-32 rounded-full border-2 border-border object-cover shadow-lg"
+        />
       </div>
+      <div class="flex-1 text-center sm:text-left">
+        <h1 class="text-3xl font-bold mb-2">👋 你好，我是王同学</h1>
+        <p class="text-xl text-muted-foreground mb-4">写下此刻，也在成为自己。</p>
+        <div class="flex flex-wrap justify-center gap-3 sm:justify-start">
+          <Link
+            href="https://wangtopia.top"
+            external
+            class="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90"
+          >
+            <Icon name="lucide:globe" size={16} />
+            个人网站
+          </Link>
+          <Link
+            href="https://github.com/codemaster1024"
+            external
+            class="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm text-secondary-foreground hover:bg-secondary/80"
+          >
+            <Icon name="lucide:github" size={16} />
+            GitHub
+          </Link>
+          <Link
+            href="https://photo.wangtopia.top"
+            external
+            class="flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm text-accent-foreground hover:bg-accent/80"
+          >
+            <Icon name="lucide:camera" size={16} />
+            相册
+          </Link>
+        </div>
+      </div>
+    </div>
 
-      <h2 class="mb-4 text-2xl font-medium">Example Projects Listing</h2>
-      <div class="flex flex-col gap-4">
-        {projects.map((project) => <ProjectCard project={project} />)}
+    <!-- 关于这个博客 -->
+    <div class="prose prose-gray dark:prose-invert max-w-none">
+      <h2 class="flex items-center gap-2 text-2xl font-semibold">
+        <Icon name="lucide:book-open" size={24} />
+        关于这个博客
+      </h2>
+      <p class="text-muted-foreground">
+        这里记录我的学习笔记、技术心得、生活感悟和一些有趣的发现。
+        希望通过分享，能够帮助到有需要的人，也能结识更多志同道合的朋友。
+      </p>
+      
+      <div class="grid gap-4 sm:grid-cols-2 not-prose mt-6">
+        <div class="rounded-lg border p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="lucide:code" size={20} class="text-blue-500" />
+            <h3 class="font-medium">技术分享</h3>
+          </div>
+          <p class="text-sm text-muted-foreground">
+            记录学习过程中的技术笔记、解决方案和最佳实践
+          </p>
+        </div>
+        
+        <div class="rounded-lg border p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="lucide:lightbulb" size={20} class="text-yellow-500" />
+            <h3 class="font-medium">生活感悟</h3>
+          </div>
+          <p class="text-sm text-muted-foreground">
+            分享日常生活中的思考、感悟和有趣的经历
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技术栈 -->
+    <div>
+      <h2 class="flex items-center gap-2 text-2xl font-semibold mb-4">
+        <Icon name="lucide:layers" size={24} />
+        技术栈
+      </h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="group rounded-lg border p-4 transition-all hover:border-blue-500/50 hover:bg-blue-50 dark:hover:bg-blue-950/20">
+          <div class="mb-2 font-medium">前端开发</div>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="rounded bg-blue-100 px-2 py-1 text-blue-800 dark:bg-blue-900 dark:text-blue-200">JavaScript</span>
+            <span class="rounded bg-blue-100 px-2 py-1 text-blue-800 dark:bg-blue-900 dark:text-blue-200">TypeScript</span>
+            <span class="rounded bg-blue-100 px-2 py-1 text-blue-800 dark:bg-blue-900 dark:text-blue-200">React</span>
+            <span class="rounded bg-blue-100 px-2 py-1 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Vue</span>
+          </div>
+        </div>
+        
+        <div class="group rounded-lg border p-4 transition-all hover:border-green-500/50 hover:bg-green-50 dark:hover:bg-green-950/20">
+          <div class="mb-2 font-medium">后端开发</div>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="rounded bg-green-100 px-2 py-1 text-green-800 dark:bg-green-900 dark:text-green-200">Java</span>
+            <span class="rounded bg-green-100 px-2 py-1 text-green-800 dark:bg-green-900 dark:text-green-200">Python</span>
+            <span class="rounded bg-green-100 px-2 py-1 text-green-800 dark:bg-green-900 dark:text-green-200">Node.js</span>
+            <span class="rounded bg-green-100 px-2 py-1 text-green-800 dark:bg-green-900 dark:text-green-200">Spring全家桶</span>
+          </div>
+        </div>
+        
+        <div class="group rounded-lg border p-4 transition-all hover:border-purple-500/50 hover:bg-purple-50 dark:hover:bg-purple-950/20">
+          <div class="mb-2 font-medium">工具 & 其他</div>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Git</span>
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Docker</span>
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900 dark:text-purple-200">K8s</span>
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900
+             dark:text-purple-200">Linux</span>
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900 dark:text-purple-200">MySQL</span>
+            <span class="rounded bg-purple-100 px-2 py-1 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Redis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目展示 -->
+    {projects.length > 0 && (
+      <div>
+        <h2 class="flex items-center gap-2 text-2xl font-semibold mb-4">
+          <Icon name="lucide:folder-open" size={24} />
+          项目展示
+        </h2>
+       <!-- <div class="grid gap-4 sm:grid-cols-2">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>--> 
+      </div>
+    )}
+
+    <!-- 联系我 -->
+    <div class="rounded-lg border bg-muted/50 p-6">
+      <h2 class="flex items-center gap-2 text-2xl font-semibold mb-4">
+        <Icon name="lucide:mail" size={24} />
+        联系我
+      </h2>
+      <p class="text-muted-foreground mb-4">
+        如果你对我的内容感兴趣，或者想要交流技术、分享想法，欢迎通过以下方式联系我：
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <Link
+          href="mailto:locuswq@gmail.com"
+          class="flex items-center gap-2 rounded-lg bg-background px-4 py-2 text-sm border hover:bg-accent/50"
+        >
+          <Icon name="lucide:mail" size={16} />
+          locuswq@gmail.com
+        </Link>
+        <Link
+          href="https://github.com/codemaster1024"
+          external
+          class="flex items-center gap-2 rounded-lg bg-background px-4 py-2 text-sm border hover:bg-accent/50"
+        >
+          <Icon name="lucide:github" size={16} />
+          GitHub
+        </Link>
       </div>
     </div>
   </section>

@@ -16,9 +16,9 @@ export const NAV_LINKS: SocialLink[] = [
     href: '/blog',
     label: '博客',
   },
-  {
-    href: '/authors',
-    label: '作者',
+    {
+    href: 'https://photo.wangtopia.top', 
+    label: '相册',
   },
   {
     href: '/about',
@@ -28,15 +28,15 @@ export const NAV_LINKS: SocialLink[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: 'https://github.com/jktrn',
+    href: 'https://github.com/codemaster1024',
     label: 'GitHub',
   },
   {
-    href: 'https://twitter.com/enscry',
-    label: 'Twitter',
+    href: 'https://wangtopia.top',
+    label: 'Website',
   },
   {
-    href: 'mailto:jason@enscribe.dev',
+    href: 'mailto:locuswq@gmail.com',
     label: 'Email',
   },
   {
@@ -52,4 +52,5 @@ export const ICON_MAP: IconMap = {
   Twitter: 'lucide:twitter',
   Email: 'lucide:mail',
   RSS: 'lucide:rss',
+  相册: 'lucide:camera',
 }

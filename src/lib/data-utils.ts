@@ -99,12 +99,7 @@ export async function getAdjacentPosts(currentId: string): Promise<{
   }
 }
 
-export async function getPostsByAuthor(
-  authorId: string,
-): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getAllPosts()
-  return posts.filter((post) => post.data.authors?.includes(authorId))
-}
+// 删除了 getPostsByAuthor 函数，因为不再需要按作者过滤文章
 
 export async function getPostsByTag(
   tag: string,
