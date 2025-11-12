@@ -4,7 +4,7 @@ export const SITE: Site = {
   title: '王同学',
   description:
     '生活；技术；分享；博客；',
-  href: 'https://astro-erudite.vercel.app',
+  href: 'https://wangtopia.top',
   author: '王同学',
   locale: 'zh-CN',
   featuredPostCount: 2,
