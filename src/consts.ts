@@ -17,7 +17,7 @@ export const NAV_LINKS: SocialLink[] = [
     label: '博客',
   },
     {
-    href: 'https://photo.wangtopia.top', 
+    href: 'https://photo.saynice.cn', 
     label: '相册',
   },
   {
