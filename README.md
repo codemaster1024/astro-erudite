@@ -86,4 +86,4 @@ npm run prettier
 
 ## 致谢
 
-本项目仓库名规划为 `saynice-site`，基于 [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite) 二次开发，在原模板基础上做了中文化与个人站定制。
+本仓库当前使用 `saynice-site` 作为项目名，基于 [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite) 二次开发，在原模板基础上做了中文化与个人站定制。
