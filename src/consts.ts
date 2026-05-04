@@ -4,7 +4,7 @@ export const SITE: Site = {
   title: '王同学',
   description:
     '生活；技术；分享；博客；',
-  href: 'https://wangtopia.top',
+  href: 'https://blog.saynice.cn',
   author: '王同学',
   locale: 'zh-CN',
   featuredPostCount: 2,
@@ -32,7 +32,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'GitHub',
   },
   {
-    href: 'https://wangtopia.top',
+    href: 'https://blog.saynice.cn',
     label: 'Website',
   },
   {

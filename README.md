@@ -1,4 +1,4 @@
-# 王同学的个人站
+# saynice-site
 
 基于 [Astro](https://astro.build/)、[Tailwind CSS](https://tailwindcss.com/) 和 [shadcn/ui](https://ui.shadcn.com/) 构建的个人博客与内容站。
 
@@ -6,7 +6,7 @@
 
 ## 在线地址
 
-- 主站: [https://wangtopia.top](https://wangtopia.top)
+- 主站: [https://blog.saynice.cn](https://blog.saynice.cn)
 - 相册: [https://photo.saynice.cn](https://photo.saynice.cn)
 
 ## 当前功能
@@ -86,4 +86,4 @@ npm run prettier
 
 ## 致谢
 
-本项目基于 [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite) 二次开发，在原模板基础上做了中文化与个人站定制。
+本项目仓库名规划为 `saynice-site`，基于 [jktrn/astro-erudite](https://github.com/jktrn/astro-erudite) 二次开发，在原模板基础上做了中文化与个人站定制。
